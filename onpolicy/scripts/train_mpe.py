@@ -256,6 +256,14 @@ def main(args):
         + str(all_args.user_name)
     )
 
+    # save the full training config so that eval_transfer.py can rebuild the
+    # policy without wandb (reproduction addition)
+    import json
+
+    cfg_dir = Path(wandb.run.dir) if all_args.use_wandb else run_dir
+    with open(str(cfg_dir) + "/config.json", "w") as f:
+        json.dump(vars(all_args), f, indent=1, default=str)
+
     # seed
     torch.manual_seed(all_args.seed)
     torch.cuda.manual_seed_all(all_args.seed)

@@ -1,0 +1,19 @@
+# Modern dependency set used for the reproduction (Python 3.10).
+# The original pins are in requirement.txt (torch 1.8.1, PyG 2.0.4); they do not
+# install on current Python versions and cannot use Ada/Blackwell GPUs.
+# Install torch first from the CUDA wheel index, e.g.
+#   pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+torch==2.7.1
+torch_geometric==2.6.1
+numpy<2
+gym==0.10.5
+setuptools<70        # gym 0.10.5 imports pkg_resources
+pyglet==1.5.27
+scipy
+tensorboard
+tensorboardX
+wandb
+tqdm
+setproctitle
+pyyaml
+imageio
