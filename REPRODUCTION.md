@@ -26,7 +26,7 @@ episode length 25, PPO epochs 10, lr 7e-4, ValueNorm + PopArt, auto mini-batch w
 |---|---|---|
 | 3 | 2M | README, `scripts/compare3.sh` |
 | 7 | 5M | `scripts/informarl.sh`, `scripts/informarl_n.sh` |
-| 10 | 20M | `scripts/compare10.sh` (`scripts/informarl_10n.sh` uses 5M) |
+| 10 | 5M | `scripts/informarl_10n.sh` (`scripts/compare10.sh` uses 20M) |
 
 The paper does not state the training budget per n; these are the values in the authors' scripts.
 
@@ -45,7 +45,8 @@ include both ends). Metrics reuse the authors' helpers in `base_runner.py`:
 
 ```bash
 bash scripts/repro/setup_env.sh                       # once
-SEEDS="1 2 3" bash scripts/repro/launch_table2.sh     # 9 background training runs
+SEEDS="1 2 3" WAVES="10,7 3" nohup setsid bash scripts/repro/launch_table2.sh \
+    > logs/repro/launcher.log 2>&1 &                # 9 runs: wave 1 = n=10,7; wave 2 = n=3
 bash scripts/repro/eval_table2.sh                     # after training: results_repro/table2.md
 ```
 
