@@ -50,7 +50,12 @@ class GR_MAPPO():
         self._use_valuenorm = args.use_valuenorm
         self._use_value_active_masks = args.use_value_active_masks
         self._use_policy_active_masks = args.use_policy_active_masks
-        self.scaler = amp.GradScaler() 
+        # Upstream always runs the PPO update under fp16 autocast + GradScaler.
+        # That produced NaN logits in our n=7/n=10 runs, so AMP is now opt-in
+        # (--use_amp); the default is plain fp32.
+        self._use_amp = bool(getattr(args, "use_amp", False))
+        self.scaler = amp.GradScaler(enabled=self._use_amp)
+        self.skipped_nonfinite_steps = 0
         assert (self._use_popart and self._use_valuenorm) == False, ("self._use_popart and self._use_valuenorm can not be set True simultaneously")
         
         if self._use_popart:
@@ -110,8 +115,33 @@ class GR_MAPPO():
             value_loss = value_loss.mean()
 
         return value_loss
-    @torch.cuda.amp.autocast()
-    def ppo_update(self, 
+    def ppo_update(self, sample, update_actor: bool = True):
+        with torch.autocast("cuda", enabled=self._use_amp):
+            return self._ppo_update(sample, update_actor)
+
+    def _step(self, optimizer, grad_norm):
+        """Optimizer step that skips non-finite gradients (fp32 path)."""
+        if self._use_amp:
+            self.scaler.step(optimizer)
+        elif torch.isfinite(grad_norm):
+            optimizer.step()
+        else:
+            self.skipped_nonfinite_steps += 1
+            print(f"[warn] non-finite grad norm, step skipped "
+                  f"(total skipped: {self.skipped_nonfinite_steps})", flush=True)
+
+    @staticmethod
+    def _assert_finite(**tensors):
+        """Fail early, naming the offending input, instead of NaN logits later."""
+        for name, t in tensors.items():
+            t = torch.as_tensor(t)
+            if t.is_floating_point() and not torch.isfinite(t).all():
+                raise FloatingPointError(
+                    f"non-finite values in PPO batch tensor '{name}' "
+                    f"(shape {tuple(t.shape)}, nan={torch.isnan(t).sum().item()}, "
+                    f"inf={torch.isinf(t).sum().item()})")
+
+    def _ppo_update(self, 
                 sample:Tuple, 
                 update_actor:bool=True) -> Tuple[Tensor, Tensor, 
                                                 Tensor, Tensor, 
@@ -142,6 +172,13 @@ class GR_MAPPO():
         active_masks_batch,old_action_log_probs_batch, adv_targ, \
         available_actions_batch = sample
 
+        self._assert_finite(share_obs=share_obs_batch, obs=obs_batch,
+                            node_obs=node_obs_batch, adj=adj_batch,
+                            rnn_states=rnn_states_batch,
+                            rnn_states_critic=rnn_states_critic_batch,
+                            value_preds=value_preds_batch, returns=return_batch,
+                            adv=adv_targ,
+                            old_log_probs=old_action_log_probs_batch)
         old_action_log_probs_batch = check(old_action_log_probs_batch).to(**self.tpdv)
         adv_targ = check(adv_targ).to(**self.tpdv)
         value_preds_batch = check(value_preds_batch).to(**self.tpdv)
@@ -202,7 +239,7 @@ class GR_MAPPO():
             actor_grad_norm = get_grad_norm(self.policy.actor.parameters())
 
         # self.policy.actor_optimizer.step()
-        self.scaler.step(self.policy.actor_optimizer) #.step()
+        self._step(self.policy.actor_optimizer, actor_grad_norm)
         # print(f'Actor Step time: {time.time() - st}')
         # st = time.time()
 
@@ -232,7 +269,7 @@ class GR_MAPPO():
             critic_grad_norm = get_grad_norm(self.policy.critic.parameters())
 
         # self.policy.critic_optimizer.step()
-        self.scaler.step(self.policy.critic_optimizer) #.step()
+        self._step(self.policy.critic_optimizer, critic_grad_norm)
         self.scaler.update()
         # print(f'Critic Step time: {time.time() - st}')
         # print('_'*50)

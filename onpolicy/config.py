@@ -357,6 +357,13 @@ def get_config():
         help="by default False, use PopArt to normalize rewards.",
     )
     parser.add_argument(
+        "--use_amp",
+        action="store_true",
+        default=False,
+        help="run the PPO update under fp16 autocast + GradScaler "
+        "(upstream default; NaN-prone in our runs, so off here)",
+    )
+    parser.add_argument(
         "--use_valuenorm",
         action="store_false",
         default=True,

@@ -30,4 +30,10 @@ python -u onpolicy/scripts/train_mpe.py --use_valuenorm --use_popart \
   --graph_feat_type "relative" \
   --auto_mini_batch_size --target_mini_batch_size 128 \
   --use_wandb \
-  > logs/repro/train_${EXP}.log 2>&1
+  > logs/repro/train_${EXP}.log 2>&1 || true
+
+# python's exit code was 0 even for crashed runs (wandb at-exit), so check the log
+LOG=logs/repro/train_${EXP}.log
+if grep -q "Traceback" "$LOG" || ! grep "Percentage complete" "$LOG" | tail -1 | grep -qE "complete (99|100)"; then
+  echo "TRAINING FAILED or incomplete: ${EXP}" >&2; exit 1
+fi
