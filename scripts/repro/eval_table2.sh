@@ -10,6 +10,12 @@ mkdir -p results_repro/eval
 for d in ${ROOT}/informarl_n*_s*/run*/models; do
   exp=$(basename "$(dirname "$(dirname "$d")")")
   [ -f "$d/actor.pt" ] || continue
+  # only evaluate runs that trained to completion (a crashed run still leaves a checkpoint)
+  LOG=logs/repro/train_${exp}.log
+  if [ ! -f "$LOG" ] || grep -q Traceback "$LOG" || \
+     ! grep "Percentage complete" "$LOG" | tail -1 | grep -qE "complete (99|100)"; then
+    echo "== $exp: SKIPPED (training incomplete or failed)"; continue
+  fi
   echo "== $exp"
   python onpolicy/scripts/eval_transfer.py --model_dir "$d" \
     --test_num_agents 3 7 10 15 --eval_episodes 100 \
