@@ -1,7 +1,7 @@
 #!/bin/bash
 # Create the conda env used for the reproduction.
 set -euo pipefail
-source "$(conda info --base)/etc/profile.d/conda.sh"
+source "${CONDA_ROOT:-$HOME/miniconda3}/etc/profile.d/conda.sh"
 conda create -y -n informarl python=3.10
 conda activate informarl
 # ignore packages in ~/.local (a stray `multiagent` package there breaks imports)
