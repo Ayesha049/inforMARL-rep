@@ -1,3 +1,8 @@
+> **Fork note (Ayesha049/inforMARL-rep).** This fork reproduces Table 2 and Figure 3 of the paper on modern
+> PyTorch/CUDA. Run scripts are in `scripts/repro/`, raw results in `results_repro/`, and the new evaluation in
+> `onpolicy/scripts/eval_transfer.py`. The write-up (protocol, code changes, results) is kept in the thesis repo as
+> `docs/06_phase0.md`.
+
 <div align="center">
 
 # InforMARL

@@ -21,5 +21,4 @@ for d in ${ROOT}/informarl_n*_s*/run*/models; do
     --test_num_agents 3 7 10 15 --eval_episodes 100 \
     --out_json results_repro/eval/${exp}.json 2>&1 | grep -E "^m=|saved"
 done
-python scripts/repro/make_table2.py results_repro/eval > results_repro/table2.md
-cat results_repro/table2.md
+python scripts/repro/make_table2.py results_repro/eval
