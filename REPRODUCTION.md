@@ -58,4 +58,26 @@ bash scripts/repro/eval_table2.sh                     # after training: results_
 
 ## Results
 
-See `results_repro/table2.md` once the runs finish.
+Full table (ours vs paper, mean ± std over 3 seeds): [`results_repro/table2.md`](results_repro/table2.md).
+All 9 runs trained to completion in fp32 (no non-finite gradient steps in any log).
+
+| Train n | Reward/m vs paper | Time T vs paper | Success vs paper | Collisions/agent vs paper |
+|---|---|---|---|---|
+| 3 (2M steps) | within about 1 at m ≥ 7 (60.7 vs 61.2, 52.5 vs 53.2); 66.6 vs 63.2 at m=3 | within 0.02 | 98-100% vs 99-100% | about 2x higher |
+| 7 (5M) | 5-7 lower (55.2 vs 62.2 at m=7) | within 0.02 | 93-100% vs 99-100% | about 2x higher |
+| 10 (5M) | 6-8 lower (53.5 vs 61.3 at m=7) | within 0.04 | 86% at m=15 vs 99%, 93% at m=7 | about 2x higher |
+
+**Reading.** The qualitative claim reproduces: a policy trained with n agents runs zero-shot at 3-15 agents with high
+success, and the n=3 policy matches the paper closely on reward, time and success. The n=7 and n=10 policies are
+weaker than the paper's, most at m=15 (success 86% for n=10). The paper does not state its training budget; our
+n=7/10 budget (5M, `scripts/informarl_10n.sh`) may simply be too small (`scripts/compare10.sh` uses 20M). Not tested.
+
+**Collisions, untested hypothesis.** Ours is about 2x the paper in every cell, including m=3, n=3 (0.81 vs 0.40).
+`multiagent/custom_scenarios/navigation_graph.py` notes that agent-agent collisions are double counted (each pair is
+counted for both agents). Halving our n=3 numbers gives 0.41 / 0.64 / 0.88 / 1.31 against the paper's
+0.40 / 0.74 / 0.95 / 1.28, but this also halves agent-obstacle collisions, which may not be double counted, so it is only
+a hint. Checking it needs agent-agent and agent-obstacle counts stored separately, which `eval_transfer.py` does not do yet.
+
+Not claimed: that the implementation is "very close" to the original. Table 2 is near its ceiling (success about 100%),
+so matching it is weak evidence; the paper's Figure 3 training curves are the stricter comparison and have not been made.
+
