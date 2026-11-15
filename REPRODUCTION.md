@@ -28,7 +28,8 @@ episode length 25, PPO epochs 10, lr 7e-4, ValueNorm + PopArt, auto mini-batch w
 | 7 | 5M | `scripts/informarl.sh`, `scripts/informarl_n.sh` |
 | 10 | 5M | `scripts/informarl_10n.sh` (`scripts/compare10.sh` uses 20M) |
 
-The paper does not state the training budget per n; these are the values in the authors' scripts.
+The paper's text does not state the budget, but the x-axes of its Figure 3 end at 2M (n=3), 4M (n=7) and 5M (n=10),
+so our budgets equal the paper's for n=3 and n=10 and exceed it for n=7.
 
 Seeds: 1, 2, 3 (the paper uses 5 for its training curves; Table 2 does not state seeds).
 
@@ -80,6 +81,23 @@ paper (n=3, m=3 -> 15: +0.90 ours vs +0.88 paper), but a constant offset remains
 collisions (about 0.55) are above the paper's implied constant (about 0.3). The cause of that offset is open; it could be
 obstacle size or placement, the obstacle-count distribution (paper: "randomly chosen from (0, 10)"), or how the paper
 counts obstacle collisions. Not tested. Re-running the evaluation reproduces the other metrics exactly (max difference 0).
+
+**Training curves vs Figure 3** ([`results_repro/fig3/fig3_compare.png`](results_repro/fig3/fig3_compare.png)).
+The paper's InforMARL mean curves were digitized from the PDF (`scripts/repro/digitize_fig3.py`, calibrated on the
+gridlines: residual ≤ 0.04% of the x-range and ≤ 0.4 reward); the digitized start values (−85, −212, −316) match the first
+logged values of our runs. Ours: mean ± std over 3 seeds, 5-point moving average.
+
+| n | Paper at end of its x-axis | Ours at the same step | Steps to 90% of the paper's gain (paper / ours) |
+|---|---|---|---|
+| 3 | 185 at 2M | 190 ± 2 | 0.95M / 0.50M |
+| 7 | 339 at 4M | 356 ± 10 | 2.57M / 2.13M |
+| 10 | 425 at 5M | 418 ± 16 | 2.77M / 3.75M |
+
+Final training reward matches the paper for every n. n=3 and n=7 learn as fast or faster; n=10 is slower in the middle
+(it stays near −220 until about 1M steps; at 1.25M ours is −83 ± 17 against the paper's 195) and catches up by 5M.
+Since the n=10 training curve reaches the paper's final value, the n=10 gap in Table 2 is probably not under-training;
+it may come from the evaluation (deterministic actions, 0-10 obstacles) rather than the policy. Not tested.
+Caveats: the paper's curve smoothing is unknown, its std band is not digitized, and we have 3 seeds against its 5.
 
 Not claimed: that the implementation is "very close" to the original. Table 2 is near its ceiling (success about 100%),
 so matching it is weak evidence; the paper's Figure 3 training curves are the stricter comparison and have not been made.
