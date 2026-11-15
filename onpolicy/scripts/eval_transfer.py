@@ -140,7 +140,7 @@ def run_group(cli, m: int, num_obstacles: int, n_eps: int, seed_base: int):
             np.concatenate(agent_id),
             np.concatenate(rnn_states),
             np.concatenate(masks),
-            deterministic=True,
+            deterministic=not cli.stochastic,
         )
         actions = np.array(np.split(_t2n(action), n_eps))
         rnn_states = np.array(np.split(_t2n(rnn_states), n_eps))
@@ -210,6 +210,11 @@ def main():
     p.add_argument("--eval_episodes", type=int, default=100)
     p.add_argument("--obs_min", type=int, default=0)
     p.add_argument("--obs_max", type=int, default=10, help="inclusive")
+    p.add_argument(
+        "--stochastic",
+        action="store_true",
+        help="sample actions from the policy (as in training) instead of the paper's deterministic test",
+    )
     p.add_argument(
         "--fixed_obstacles",
         type=int,
