@@ -99,6 +99,24 @@ Since the n=10 training curve reaches the paper's final value, the n=10 gap in T
 it may come from the evaluation (deterministic actions, 0-10 obstacles) rather than the policy. Not tested.
 Caveats: the paper's curve smoothing is unknown, its std band is not digitized, and we have 3 seeds against its 5.
 
+**Evaluation-protocol variants** ([`results_repro/eval_variants.md`](results_repro/eval_variants.md),
+`scripts/repro/eval_variants.sh`). Each policy is re-evaluated at m = n and m = 7 with (A) 3 obstacles + deterministic
+actions, (B) 0-10 obstacles + stochastic actions, (C) 3 obstacles + stochastic actions (= training conditions).
+
+- *Consistency check:* C at m = n gives team reward 196 / 356 / 423 for n = 3 / 7 / 10, against 190 / 356 / 418 at the
+  end of our training curves, so evaluation and training agree.
+- *Action mode is not the cause:* stochastic actions lower reward and success in every cell (e.g. n = 10, m = 10:
+  42.3 vs 53.9 Reward/m), so the deterministic test is the right one and is not why we are below the paper.
+- *Obstacles explain the collision offset:* with 3 obstacles, agent-obstacle collisions drop from about 0.55 to about
+  0.33 per agent. Counting each agent-agent collision once (aa/2) then gives 0.44 / 0.79 / 0.78 / 0.74 / 0.92 against the
+  paper's 0.40 / 0.74 / 0.66 / 0.70 / 0.87 (cells n,m = 3,3 / 3,7 / 7,7 / 10,7 / 10,10). This fits the paper's Table 2
+  collisions better than the stated 0-10 obstacle protocol does; it is a hint about how Table 2 was produced, not a proof.
+- *Reward gap for n = 7 and 10 shrinks but stays:* with 3 obstacles, team reward is 412 vs 436 (n = 7, m = 7), 402 vs 429
+  (n = 10, m = 7) and 539 vs 587 (n = 10, m = 10), i.e. 5-8% below; success 92-97% vs 100% for n = 10.
+- *The paper's own tables differ:* for n = 10 at m = 10, Table 2 implies a team reward of 587 while Table 1 reports 429.
+  Our training-condition evaluation (C, 423) and training curve (418) match Table 1 and Figure 3, not Table 2. No single
+  evaluation protocol we tried reproduces both tables, which limits how closely Table 2 can be matched.
+
 Not claimed: that the implementation is "very close" to the original. Table 2 is near its ceiling (success about 100%),
 so matching it is weak evidence; the paper's Figure 3 training curves are the stricter comparison and have not been made.
 

@@ -1,0 +1,1035 @@
+{
+ "model_dir": "onpolicy/results/GraphMPE/navigation_graph/rmappo/informarl_n7_s1/run1/models",
+ "args": {
+  "model_dir": "onpolicy/results/GraphMPE/navigation_graph/rmappo/informarl_n7_s1/run1/models",
+  "test_num_agents": [
+   7
+  ],
+  "eval_episodes": 100,
+  "obs_min": 0,
+  "obs_max": 10,
+  "stochastic": true,
+  "fixed_obstacles": null,
+  "seed": 12345,
+  "out_json": "results_repro/eval_variants/informarl_n7_s1_B.json"
+ },
+ "summary": [
+  {
+   "m": 7,
+   "episodes": 100,
+   "reward_per_m": 44.0260995175107,
+   "T": 0.40417142857142857,
+   "col_per_m": 1.4057142857142857,
+   "S_pct": 97.0,
+   "col_aa_per_m": 0.78,
+   "col_obs_per_m": 0.6257142857142857,
+   "reward_per_m_std": 10.72179609865472,
+   "T_std": 0.05910823002884503,
+   "col_per_m_std": 0.8721823437884573
+  }
+ ],
+ "episodes": {
+  "7": [
+   {
+    "num_obstacles": 0,
+    "reward_per_agent_mean": 324.02868846300765,
+    "team_reward": 324.02868846300765,
+    "frac_episode": 0.44,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 0,
+    "reward_per_agent_mean": 355.13904832676275,
+    "team_reward": 355.13904832676275,
+    "frac_episode": 0.3485714285714286,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 10.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 0,
+    "reward_per_agent_mean": 413.42889601864084,
+    "team_reward": 413.42889601864084,
+    "frac_episode": 0.35428571428571426,
+    "success": 1,
+    "collisions": 0.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 0,
+    "reward_per_agent_mean": 397.3585483829875,
+    "team_reward": 397.3585483829875,
+    "frac_episode": 0.4114285714285715,
+    "success": 1,
+    "collisions": 0.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 0,
+    "reward_per_agent_mean": 300.27650385548014,
+    "team_reward": 300.27650385548014,
+    "frac_episode": 0.48571428571428577,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 0,
+    "reward_per_agent_mean": 436.3127566159043,
+    "team_reward": 436.3127566159043,
+    "frac_episode": 0.3142857142857142,
+    "success": 1,
+    "collisions": 6.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 359.11355642634965,
+    "team_reward": 359.11355642634965,
+    "frac_episode": 0.4114285714285714,
+    "success": 1,
+    "collisions": 2.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 331.55908313160904,
+    "team_reward": 331.55908313160904,
+    "frac_episode": 0.37714285714285717,
+    "success": 1,
+    "collisions": 6.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 366.79382721316233,
+    "team_reward": 366.79382721316233,
+    "frac_episode": 0.35428571428571426,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 10.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 252.98411096654178,
+    "team_reward": 252.98411096654178,
+    "frac_episode": 0.4857142857142857,
+    "success": 1,
+    "collisions": 3.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 438.3753226001128,
+    "team_reward": 438.3753226001128,
+    "frac_episode": 0.32,
+    "success": 1,
+    "collisions": 9.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 365.6426324026601,
+    "team_reward": 365.6426324026601,
+    "frac_episode": 0.4114285714285714,
+    "success": 1,
+    "collisions": 5.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 272.206330874205,
+    "team_reward": 272.206330874205,
+    "frac_episode": 0.3657142857142857,
+    "success": 1,
+    "collisions": 18.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 10.0
+   },
+   {
+    "num_obstacles": 1,
+    "reward_per_agent_mean": 410.3028669105416,
+    "team_reward": 410.3028669105416,
+    "frac_episode": 0.37142857142857144,
+    "success": 1,
+    "collisions": 1.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 2,
+    "reward_per_agent_mean": 215.54915786956028,
+    "team_reward": 215.54915786956028,
+    "frac_episode": 0.48000000000000004,
+    "success": 1,
+    "collisions": 5.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 2,
+    "reward_per_agent_mean": 268.12206521386855,
+    "team_reward": 268.12206521386855,
+    "frac_episode": 0.42857142857142855,
+    "success": 1,
+    "collisions": 3.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 2,
+    "reward_per_agent_mean": 387.5491085141111,
+    "team_reward": 387.5491085141111,
+    "frac_episode": 0.34857142857142864,
+    "success": 1,
+    "collisions": 1.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 2,
+    "reward_per_agent_mean": 277.7574565749015,
+    "team_reward": 277.7574565749015,
+    "frac_episode": 0.4114285714285715,
+    "success": 1,
+    "collisions": 0.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 2,
+    "reward_per_agent_mean": 419.78687516756014,
+    "team_reward": 419.78687516756014,
+    "frac_episode": 0.33142857142857146,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 2,
+    "reward_per_agent_mean": 249.15567231111393,
+    "team_reward": 249.15567231111393,
+    "frac_episode": 0.4857142857142857,
+    "success": 1,
+    "collisions": 8.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 2,
+    "reward_per_agent_mean": 217.55059490672278,
+    "team_reward": 217.55059490672278,
+    "frac_episode": 0.4342857142857143,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 299.24797507393896,
+    "team_reward": 299.24797507393896,
+    "frac_episode": 0.4114285714285715,
+    "success": 1,
+    "collisions": 3.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 366.9969194250592,
+    "team_reward": 366.9969194250592,
+    "frac_episode": 0.37142857142857144,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 342.8164905213333,
+    "team_reward": 342.8164905213333,
+    "frac_episode": 0.29714285714285715,
+    "success": 1,
+    "collisions": 7.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 316.58881745485513,
+    "team_reward": 316.58881745485513,
+    "frac_episode": 0.4514285714285714,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 10.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 295.6110226894629,
+    "team_reward": 295.6110226894629,
+    "frac_episode": 0.5142857142857143,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 10.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 341.38146821444724,
+    "team_reward": 341.38146821444724,
+    "frac_episode": 0.36,
+    "success": 1,
+    "collisions": 7.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 401.05469818095696,
+    "team_reward": 401.05469818095696,
+    "frac_episode": 0.34857142857142864,
+    "success": 1,
+    "collisions": 7.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 312.86435830116585,
+    "team_reward": 312.86435830116585,
+    "frac_episode": 0.4685714285714286,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 199.8905822436123,
+    "team_reward": 199.8905822436123,
+    "frac_episode": 0.49142857142857144,
+    "success": 1,
+    "collisions": 9.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 393.67271443394344,
+    "team_reward": 393.67271443394344,
+    "frac_episode": 0.4114285714285715,
+    "success": 1,
+    "collisions": 3.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 216.6512736452094,
+    "team_reward": 216.6512736452094,
+    "frac_episode": 0.43999999999999995,
+    "success": 1,
+    "collisions": 15.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 7.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 214.5222526163438,
+    "team_reward": 214.5222526163438,
+    "frac_episode": 0.35428571428571437,
+    "success": 1,
+    "collisions": 17.0,
+    "col_agent_agent": 16.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 245.0816441292025,
+    "team_reward": 245.0816441292025,
+    "frac_episode": 0.4685714285714286,
+    "success": 1,
+    "collisions": 9.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 308.2390776392618,
+    "team_reward": 308.2390776392618,
+    "frac_episode": 0.4171428571428572,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 300.91642274973884,
+    "team_reward": 300.91642274973884,
+    "frac_episode": 0.44571428571428584,
+    "success": 1,
+    "collisions": 12.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 3,
+    "reward_per_agent_mean": 267.56073692899366,
+    "team_reward": 267.56073692899366,
+    "frac_episode": 0.5028571428571429,
+    "success": 0,
+    "collisions": 10.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 298.2483704816432,
+    "team_reward": 298.2483704816432,
+    "frac_episode": 0.4742857142857143,
+    "success": 1,
+    "collisions": 12.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 84.47044568098484,
+    "team_reward": 84.47044568098484,
+    "frac_episode": 0.5828571428571429,
+    "success": 0,
+    "collisions": 19.0,
+    "col_agent_agent": 14.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 240.08396680092645,
+    "team_reward": 240.08396680092645,
+    "frac_episode": 0.3885714285714286,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 380.62184636297985,
+    "team_reward": 380.62184636297985,
+    "frac_episode": 0.2914285714285714,
+    "success": 1,
+    "collisions": 0.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 310.1024213488908,
+    "team_reward": 310.1024213488908,
+    "frac_episode": 0.4114285714285714,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 374.6650395636275,
+    "team_reward": 374.6650395636275,
+    "frac_episode": 0.42857142857142866,
+    "success": 1,
+    "collisions": 2.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 302.3903030237603,
+    "team_reward": 302.3903030237603,
+    "frac_episode": 0.36,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 9.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 245.85142625805764,
+    "team_reward": 245.85142625805764,
+    "frac_episode": 0.4571428571428572,
+    "success": 1,
+    "collisions": 14.0,
+    "col_agent_agent": 10.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 389.47753722986414,
+    "team_reward": 389.47753722986414,
+    "frac_episode": 0.3942857142857143,
+    "success": 1,
+    "collisions": 7.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 4,
+    "reward_per_agent_mean": 251.28261003504457,
+    "team_reward": 251.28261003504457,
+    "frac_episode": 0.44,
+    "success": 1,
+    "collisions": 20.0,
+    "col_agent_agent": 16.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 5,
+    "reward_per_agent_mean": 311.3841637153104,
+    "team_reward": 311.3841637153104,
+    "frac_episode": 0.3828571428571429,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 7.0
+   },
+   {
+    "num_obstacles": 5,
+    "reward_per_agent_mean": 149.07425846670625,
+    "team_reward": 149.07425846670625,
+    "frac_episode": 0.4857142857142857,
+    "success": 1,
+    "collisions": 19.0,
+    "col_agent_agent": 16.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 5,
+    "reward_per_agent_mean": 210.71463953282134,
+    "team_reward": 210.71463953282134,
+    "frac_episode": 0.4057142857142857,
+    "success": 1,
+    "collisions": 16.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 12.0
+   },
+   {
+    "num_obstacles": 5,
+    "reward_per_agent_mean": 433.80920485626626,
+    "team_reward": 433.80920485626626,
+    "frac_episode": 0.36,
+    "success": 1,
+    "collisions": 6.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 5,
+    "reward_per_agent_mean": 335.51286378214496,
+    "team_reward": 335.51286378214496,
+    "frac_episode": 0.32,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 12.0,
+    "col_agent_obstacle": 1.0
+   },
+   {
+    "num_obstacles": 5,
+    "reward_per_agent_mean": 189.95765036278684,
+    "team_reward": 189.95765036278684,
+    "frac_episode": 0.44,
+    "success": 1,
+    "collisions": 16.0,
+    "col_agent_agent": 10.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 5,
+    "reward_per_agent_mean": 405.4380851549694,
+    "team_reward": 405.4380851549694,
+    "frac_episode": 0.29714285714285715,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 278.0396303772732,
+    "team_reward": 278.0396303772732,
+    "frac_episode": 0.41714285714285715,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 265.2236663698266,
+    "team_reward": 265.2236663698266,
+    "frac_episode": 0.4571428571428572,
+    "success": 1,
+    "collisions": 16.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 8.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 323.495461826632,
+    "team_reward": 323.495461826632,
+    "frac_episode": 0.42285714285714293,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 240.929748527981,
+    "team_reward": 240.929748527981,
+    "frac_episode": 0.36000000000000004,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 286.1913138503976,
+    "team_reward": 286.1913138503976,
+    "frac_episode": 0.39428571428571424,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 8.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 392.86518781321587,
+    "team_reward": 392.86518781321587,
+    "frac_episode": 0.32,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 10.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 259.35895780696086,
+    "team_reward": 259.35895780696086,
+    "frac_episode": 0.46285714285714274,
+    "success": 1,
+    "collisions": 10.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 455.72033853858727,
+    "team_reward": 455.72033853858727,
+    "frac_episode": 0.32571428571428573,
+    "success": 1,
+    "collisions": 0.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 261.4474603244948,
+    "team_reward": 261.4474603244948,
+    "frac_episode": 0.42285714285714293,
+    "success": 1,
+    "collisions": 9.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 314.459721093223,
+    "team_reward": 314.459721093223,
+    "frac_episode": 0.3885714285714286,
+    "success": 1,
+    "collisions": 6.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 288.01698937590555,
+    "team_reward": 288.01698937590555,
+    "frac_episode": 0.42857142857142855,
+    "success": 1,
+    "collisions": 9.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 7.0
+   },
+   {
+    "num_obstacles": 6,
+    "reward_per_agent_mean": 380.60980185474904,
+    "team_reward": 380.60980185474904,
+    "frac_episode": 0.37714285714285717,
+    "success": 1,
+    "collisions": 4.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 7,
+    "reward_per_agent_mean": 230.42370831119803,
+    "team_reward": 230.42370831119803,
+    "frac_episode": 0.4800000000000001,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 7.0
+   },
+   {
+    "num_obstacles": 7,
+    "reward_per_agent_mean": 321.20138379464134,
+    "team_reward": 321.20138379464134,
+    "frac_episode": 0.32571428571428573,
+    "success": 1,
+    "collisions": 24.0,
+    "col_agent_agent": 20.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 7,
+    "reward_per_agent_mean": 246.49240098878545,
+    "team_reward": 246.49240098878545,
+    "frac_episode": 0.48000000000000004,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 9.0
+   },
+   {
+    "num_obstacles": 7,
+    "reward_per_agent_mean": 359.4959920091238,
+    "team_reward": 359.4959920091238,
+    "frac_episode": 0.3828571428571429,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 7,
+    "reward_per_agent_mean": 305.06565193470425,
+    "team_reward": 305.06565193470425,
+    "frac_episode": 0.3657142857142857,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 9.0
+   },
+   {
+    "num_obstacles": 7,
+    "reward_per_agent_mean": 409.9813546215219,
+    "team_reward": 409.9813546215219,
+    "frac_episode": 0.31428571428571433,
+    "success": 1,
+    "collisions": 7.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 381.75328524228433,
+    "team_reward": 381.75328524228433,
+    "frac_episode": 0.39999999999999997,
+    "success": 1,
+    "collisions": 2.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 138.66855063807827,
+    "team_reward": 138.66855063807827,
+    "frac_episode": 0.48000000000000004,
+    "success": 1,
+    "collisions": 26.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 18.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 403.91515816443035,
+    "team_reward": 403.91515816443035,
+    "frac_episode": 0.26857142857142857,
+    "success": 1,
+    "collisions": 8.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 8.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 268.5845251092704,
+    "team_reward": 268.5845251092704,
+    "frac_episode": 0.4057142857142857,
+    "success": 1,
+    "collisions": 18.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 12.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 331.5997758959259,
+    "team_reward": 331.5997758959259,
+    "frac_episode": 0.37142857142857144,
+    "success": 1,
+    "collisions": 7.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 298.161744323654,
+    "team_reward": 298.161744323654,
+    "frac_episode": 0.40571428571428575,
+    "success": 1,
+    "collisions": 2.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 0.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 282.8290543135519,
+    "team_reward": 282.8290543135519,
+    "frac_episode": 0.3885714285714286,
+    "success": 1,
+    "collisions": 14.0,
+    "col_agent_agent": 12.0,
+    "col_agent_obstacle": 2.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 294.74621926948663,
+    "team_reward": 294.74621926948663,
+    "frac_episode": 0.47428571428571425,
+    "success": 1,
+    "collisions": 14.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 10.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 299.1880266162901,
+    "team_reward": 299.1880266162901,
+    "frac_episode": 0.3885714285714285,
+    "success": 1,
+    "collisions": 9.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 365.29303982234694,
+    "team_reward": 365.29303982234694,
+    "frac_episode": 0.4,
+    "success": 1,
+    "collisions": 5.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 8,
+    "reward_per_agent_mean": 308.59707938876267,
+    "team_reward": 308.59707938876267,
+    "frac_episode": 0.4342857142857143,
+    "success": 1,
+    "collisions": 16.0,
+    "col_agent_agent": 12.0,
+    "col_agent_obstacle": 4.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 338.0994970480294,
+    "team_reward": 338.0994970480294,
+    "frac_episode": 0.3828571428571429,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 7.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 388.3065571371539,
+    "team_reward": 388.3065571371539,
+    "frac_episode": 0.3657142857142857,
+    "success": 1,
+    "collisions": 17.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 13.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 341.7621020167288,
+    "team_reward": 341.7621020167288,
+    "frac_episode": 0.32571428571428573,
+    "success": 1,
+    "collisions": 15.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 15.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 317.4517158346277,
+    "team_reward": 317.4517158346277,
+    "frac_episode": 0.4057142857142857,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 3.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 448.7848506056088,
+    "team_reward": 448.7848506056088,
+    "frac_episode": 0.3371428571428572,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 11.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 360.28505122400884,
+    "team_reward": 360.28505122400884,
+    "frac_episode": 0.37142857142857144,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 359.60432714148294,
+    "team_reward": 359.60432714148294,
+    "frac_episode": 0.32,
+    "success": 1,
+    "collisions": 14.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 10.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 241.8649104189678,
+    "team_reward": 241.8649104189678,
+    "frac_episode": 0.4685714285714287,
+    "success": 1,
+    "collisions": 13.0,
+    "col_agent_agent": 2.0,
+    "col_agent_obstacle": 11.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 342.62049111648076,
+    "team_reward": 342.62049111648076,
+    "frac_episode": 0.3714285714285714,
+    "success": 1,
+    "collisions": 6.0,
+    "col_agent_agent": 0.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 213.77087892884805,
+    "team_reward": 213.77087892884805,
+    "frac_episode": 0.3885714285714286,
+    "success": 1,
+    "collisions": 12.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 9,
+    "reward_per_agent_mean": 177.4830687957444,
+    "team_reward": 177.4830687957444,
+    "frac_episode": 0.5257142857142857,
+    "success": 0,
+    "collisions": 21.0,
+    "col_agent_agent": 16.0,
+    "col_agent_obstacle": 5.0
+   },
+   {
+    "num_obstacles": 10,
+    "reward_per_agent_mean": 305.4841165916992,
+    "team_reward": 305.4841165916992,
+    "frac_episode": 0.38285714285714295,
+    "success": 1,
+    "collisions": 15.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 11.0
+   },
+   {
+    "num_obstacles": 10,
+    "reward_per_agent_mean": 234.85222818560126,
+    "team_reward": 234.85222818560126,
+    "frac_episode": 0.4571428571428572,
+    "success": 1,
+    "collisions": 16.0,
+    "col_agent_agent": 6.0,
+    "col_agent_obstacle": 10.0
+   },
+   {
+    "num_obstacles": 10,
+    "reward_per_agent_mean": 338.63436145429233,
+    "team_reward": 338.63436145429233,
+    "frac_episode": 0.36571428571428577,
+    "success": 1,
+    "collisions": 11.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 7.0
+   },
+   {
+    "num_obstacles": 10,
+    "reward_per_agent_mean": 128.1634100187905,
+    "team_reward": 128.1634100187905,
+    "frac_episode": 0.4342857142857143,
+    "success": 1,
+    "collisions": 34.0,
+    "col_agent_agent": 24.0,
+    "col_agent_obstacle": 10.0
+   },
+   {
+    "num_obstacles": 10,
+    "reward_per_agent_mean": 222.75190082633574,
+    "team_reward": 222.75190082633574,
+    "frac_episode": 0.47428571428571425,
+    "success": 1,
+    "collisions": 14.0,
+    "col_agent_agent": 8.0,
+    "col_agent_obstacle": 6.0
+   },
+   {
+    "num_obstacles": 10,
+    "reward_per_agent_mean": 270.8205770596683,
+    "team_reward": 270.8205770596683,
+    "frac_episode": 0.4514285714285714,
+    "success": 1,
+    "collisions": 12.0,
+    "col_agent_agent": 4.0,
+    "col_agent_obstacle": 8.0
+   }
+  ]
+ }
+}
