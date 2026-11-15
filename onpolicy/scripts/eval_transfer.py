@@ -157,6 +157,11 @@ def run_group(cli, m: int, num_obstacles: int, n_eps: int, seed_base: int):
         env_infos = runner.process_infos([infos[e]])
         frac, success = runner.get_fraction_episodes(env_infos)
         collisions = runner.get_collisions(env_infos)
+        # same counters, kept apart: agent-agent counts are per agent, so every
+        # agent-agent collision is counted once for each of the two agents
+        col_aa = sum(v[0] for k, v in env_infos.items() if "num_agent_collisions" in k)
+        col_obs = sum(v[0] for k, v in env_infos.items() if "num_obstacle_collisions" in k)
+        assert abs(col_aa + col_obs - collisions) < 1e-6
         per_agent_rew = float(np.mean(ep_rewards[e]))
         results.append(
             {
@@ -169,6 +174,8 @@ def run_group(cli, m: int, num_obstacles: int, n_eps: int, seed_base: int):
                 "frac_episode": float(np.mean(frac)),
                 "success": int(success),
                 "collisions": float(collisions),
+                "col_agent_agent": float(col_aa),
+                "col_agent_obstacle": float(col_obs),
             }
         )
     return results
@@ -179,6 +186,8 @@ def summarise(m: int, eps: list) -> dict:
     frac = np.array([e["frac_episode"] for e in eps])
     succ = np.array([e["success"] for e in eps])
     col = np.array([e["collisions"] for e in eps])
+    col_aa = np.array([e["col_agent_agent"] for e in eps])
+    col_obs = np.array([e["col_agent_obstacle"] for e in eps])
     return {
         "m": m,
         "episodes": len(eps),
@@ -186,6 +195,8 @@ def summarise(m: int, eps: list) -> dict:
         "T": float(np.mean(frac)),
         "col_per_m": float(np.mean(col) / m),
         "S_pct": float(100.0 * np.mean(succ)),
+        "col_aa_per_m": float(np.mean(col_aa) / m),
+        "col_obs_per_m": float(np.mean(col_obs) / m),
         "reward_per_m_std": float(np.std(team / m)),
         "T_std": float(np.std(frac)),
         "col_per_m_std": float(np.std(col / m)),

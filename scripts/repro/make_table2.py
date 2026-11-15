@@ -22,8 +22,12 @@ PAPER = {
     10: {3: (58.59, 0.38, 0.95, 100), 7: (58.23, 0.40, 0.88, 99), 10: (58.67, 0.39, 0.87, 100)},
     15: {3: (53.19, 0.39, 1.28, 100), 7: (53.46, 0.40, 1.21, 99), 10: (54.21, 0.40, 1.20, 99)},
 }
+# paper's (# col)/m, used for the collision-breakdown table
 METRICS = [("reward_per_m", "Reward/m", "{:.2f}"), ("T", "T", "{:.2f}"),
            ("col_per_m", "(# col)/m", "{:.2f}"), ("S_pct", "S%", "{:.0f}")]
+
+
+EXTRA = [("col_aa_per_m", "agent-agent/m", "{:.2f}"), ("col_obs_per_m", "obstacle/m", "{:.2f}")]
 
 
 def main(eval_dir: str):
@@ -35,8 +39,9 @@ def main(eval_dir: str):
         n, s = int(mt.group(1)), int(mt.group(2))
         seeds[n].add(s)
         for row in json.load(open(f))["summary"]:
-            for key, _, _ in METRICS:
-                vals[(n, row["m"], key)].append(row[key])
+            for key, _, _ in METRICS + EXTRA:
+                if key in row:
+                    vals[(n, row["m"], key)].append(row[key])
     ns = sorted(seeds)
     ms = sorted({k[1] for k in vals})
     print("# InforMARL Table 2 reproduction (Target task)\n")
@@ -60,6 +65,22 @@ def main(eval_dir: str):
                 idx = [k for k, _, _ in METRICS].index(key)
                 cells.append(fmt.format(p[idx]) if p else "–")
             print(f"| m={m} | {label} | " + " | ".join(cells) + " |")
+
+
+    if any(k[2] == "col_aa_per_m" for k in vals):
+        print("\n## Collision breakdown (per agent)\n")
+        print("`aa` = agent-agent collisions, counted once per agent involved (so 2x the number of "
+              "collisions); `obs` = agent-obstacle. `aa/2+obs` counts each agent-agent collision once.\n")
+        print("| Train n | Test m | aa | obs | aa+obs (as reported above) | aa/2+obs | paper |")
+        print("|---|---|---|---|---|---|---|")
+        for n in ns:
+            for m in ms:
+                aa, ob = vals.get((n, m, "col_aa_per_m")), vals.get((n, m, "col_obs_per_m"))
+                if not aa:
+                    continue
+                aa, ob = np.mean(aa), np.mean(ob)
+                print(f"| {n} | {m} | {aa:.2f} | {ob:.2f} | {aa + ob:.2f} | {aa / 2 + ob:.2f} | "
+                      f"{PAPER[m][n][2]:.2f} |")
 
 
 if __name__ == "__main__":
